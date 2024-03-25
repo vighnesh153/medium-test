@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>With Javascript</title>
+  </head>
+  <body>
+    <h1>Pikachu (with JS)</h1>
+    <ul></ul>
+  </body>
+
+  <script>
+    async function main() {
+      const users = await fetch(
+        "https://jsonplaceholder.typicode.com/users"
+      ).then((res) => res.json());
+
+      const list = document.querySelector("ul");
+      for (const user of users) {
+        const li = document.createElement("li");
+        li.innerText = user.name;
+        list.appendChild(li);
+      }
+    }
+    main();
+  </script>
+</html>
